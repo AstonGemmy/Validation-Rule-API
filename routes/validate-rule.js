@@ -95,7 +95,7 @@ if (!isValidObject(data)) {
     }
     
     if (!data.hasOwnProperty(rule.field)) {
-      respondWithError(`field ${ruleValidatorArray[0]} is missing from data.`)
+      respondWithError(`field ${rule.field} is missing from data.`)
     }
 
       ruleValidator = data[rule.field];
