@@ -81,28 +81,23 @@ router.post('/', (req, res, next) => {
     ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]] || data;
   } else {
 
-    if (typeof rule.field === "number" && !isNaN(rule.field)) {
-      /*if (typeof data[rule.field] == undefined) {
-         respondWithError("data is required.")
-      }
-      ruleValidator = data[parseInt(rule.field)] || data;*/
-return res.json("number")
-    }
-
     if (typeof rule.field == "string") {
 
-if (!isValidObject(data)) {
-      respondWithError("data is required.")
-    }
-    
-    if (!data.hasOwnProperty(rule.field)) {
+if (isValidObject(data)) {
+if (!data.hasOwnProperty(rule.field)) {
       respondWithError(`field ${rule.field} is missing from data.`)
     }
+ruleValidator = data[rule.field];
+      
+    }
 
-      ruleValidator = data[rule.field];
     }
     
   }
+
+if (typeof data == "string") {
+ruleValidator = data;
+    }
   
   const {condition, condition_value} = rule;
 
