@@ -87,17 +87,13 @@ if (isValidObject(data)) {
 if (!data.hasOwnProperty(rule.field)) {
       respondWithError(`field ${rule.field} is missing from data.`)
     }
-ruleValidator = data[rule.field];
+ruleValidator = data[rule.field] || data;
       
     }
 
     }
     
   }
-
-if (typeof data == "string") {
-ruleValidator = data;
-    }
   
   const {condition, condition_value} = rule;
 
