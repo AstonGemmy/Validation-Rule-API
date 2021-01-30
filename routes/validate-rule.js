@@ -89,7 +89,16 @@ router.post('/', (req, res, next) => {
     }*/
 
     if (typeof rule.field == "string") {
-      ruleValidator = data[rule.field] || data;
+
+if (!isValidObject(data)) {
+      respondWithError("data is required.")
+    }
+    
+    if (!data.hasOwnProperty(rule.field)) {
+      respondWithError(`field ${ruleValidatorArray[0]} is missing from data.`)
+    }
+
+      ruleValidator = data[rule.field];
     }
     
   }
