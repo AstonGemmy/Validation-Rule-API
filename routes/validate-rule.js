@@ -81,7 +81,7 @@ router.post('/', (req, res, next) => {
     ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]] || data;
   } else {
 
-    if (typeof rule.field === "number") {
+    if (typeof rule.field === "number" && !isNaN(rule.field)) {
       /*if (typeof data[rule.field] == undefined) {
          respondWithError("data is required.")
       }
