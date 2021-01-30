@@ -89,7 +89,7 @@ router.post('/', (req, res, next) => {
     // }
 
     if (typeof rule.field == "string") {
-      ruleValidator = data;
+      ruleValidator = data[rule.field];
     }
     
   }
