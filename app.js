@@ -10,8 +10,8 @@ var validateRouter = require('./routes/validate-rule');
 var app = express();
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.use(function(req, res, next) {
     res.setHeader("Content-Type", "application/json");
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/validate-rule', validateRouter);
@@ -48,7 +48,7 @@ app.use(function(err, req, res, next) {
         });
     }*/
 
-    return res.json({});
+    res.json({});
   
 });
 
