@@ -4,7 +4,7 @@ var router = express.Router();
 /* POST */
 router.post('/', (req, res, next) => {
 
-  const {rule, data} = JSON.parse(req.body);
+  const {rule, data} = req.body;
 
   const respondWithError = (message) => {
     return res.status(400).json({
