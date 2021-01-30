@@ -81,15 +81,15 @@ router.post('/', (req, res, next) => {
     ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]];
   } else {
 
-    // if (typeof rule.field == undefined) {
-    //   if (typeof data[rule.field] == undefined) {
-    //     respondWithError("data is required.")
-    //   }
-    //   ruleValidator = data.condition;
-    // }
+    if (typeof rule.field == Number) {
+      if (typeof data[rule.field] == undefined) {
+         respondWithError("data is required.")
+      }
+      ruleValidator = data[parseInt(rule.field)] || data;
+    }
 
     if (typeof rule.field == "string") {
-      ruleValidator = data[rule.field];
+      ruleValidator = data[rule.field] || data;
     }
     
   }
