@@ -81,12 +81,12 @@ router.post('/', (req, res, next) => {
     ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]] || data;
   } else {
 
-    if (typeof rule.field == Number) {
+    /*if (typeof rule.field == Number) {
       if (typeof data[rule.field] == undefined) {
          respondWithError("data is required.")
       }
       ruleValidator = data[parseInt(rule.field)] || data;
-    }
+    }*/
 
     if (typeof rule.field == "string") {
       ruleValidator = data[rule.field] || data;
