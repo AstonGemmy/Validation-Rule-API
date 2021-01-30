@@ -174,11 +174,9 @@ router.post('/', (req, res, next) => {
 
     case 'contains':
       if (ruleValidator.toString().includes(condition_value.toString())) {
-        // Validate.success();
-        res.send('yes')
+        Validate.success();
       } else {
-        // Validate.failure();
-        res.send("not")
+        Validate.failure();
       }
 
       break;
