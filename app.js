@@ -37,7 +37,7 @@ app.use(function(err, req, res, next) {
 
     if (err.type == "entity.parse.failed") {        
         return res.json({
-            "message": "Payload should be a valid JSON object.",
+            "message": "Payloadg should be a valid JSON object.",
             "status": "error",
             "data": null
         });
