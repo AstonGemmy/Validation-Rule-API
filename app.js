@@ -40,15 +40,15 @@ app.use(function(err, req, res, next) {
     
     res.status(err.status || 500);
 
-    /*if (err.type == "entity.parse.failed") {        
+    if (err.type == "entity.parse.failed") {        
         return res.json({
             "message": "Payloadg should be a valid JSON object.",
             "status": "error",
             "data": null
         });
-    }*/
+    }
 
-    res.json({});
+    return res.json({});
   
 });
 
