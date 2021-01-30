@@ -78,7 +78,7 @@ router.post('/', (req, res, next) => {
     if (!data[ruleValidatorArray[0]].hasOwnProperty(ruleValidatorArray[1])) {
       respondWithError(`field ${ruleValidatorArray[1]} is missing from ${ruleValidatorArray[0]}.`)
     }
-    ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]];
+    ruleValidator = data[ruleValidatorArray[0]][ruleValidatorArray[1]] || data;
   } else {
 
     if (typeof rule.field == Number) {
